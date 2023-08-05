@@ -4,6 +4,7 @@
   "description": "A template for my nodejs projects",
   "main": "prod/index.js",
   "scripts": {
+    "prebuild": "prisma generate",
     "build": "tsc",
     "lint": "eslint src test --max-warnings 0 && prettier src test --check",
     "start": "node -r dotenv/config prod/index.js",
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/naomi-lgbt/activity-bot#readme",
   "dependencies": {
+    "@prisma/client": "5.1.1",
     "dotenv": "16.3.1",
     "winston": "3.10.0"
   },
@@ -45,6 +47,7 @@
     "eslint": "8.46.0",
     "mocha": "10.2.0",
     "prettier": "2.8.8",
+    "prisma": "5.1.1",
     "ts-mocha": "10.0.0",
     "typescript": "5.1.6"
   }
