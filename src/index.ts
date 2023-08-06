@@ -1,3 +1,4 @@
+import { PrismaClient } from "@prisma/client";
 import { Client, Events, GatewayIntentBits } from "discord.js";
 
 import { ExtendedClient } from "./interfaces/ExtendedClient";
@@ -12,6 +13,8 @@ import { logHandler } from "./utils/logHandler";
       GatewayIntentBits.GuildMembers,
     ],
   }) as ExtendedClient;
+  bot.db = new PrismaClient();
+  await bot.db.$connect();
 
   bot.on(Events.ClientReady, () => {
     logHandler.info("Bot ready.");
