@@ -27,7 +27,7 @@ import { logHandler } from "./utils/logHandler";
 
     if (
       message.author.id === "465650873650118659" &&
-      message.content === "~prune"
+      message.content.startsWith("~prune")
     ) {
       const dryrun = message.content.includes("--dryrun");
       const records = await bot.db.users.findMany();
